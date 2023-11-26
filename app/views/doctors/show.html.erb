@@ -1,0 +1,55 @@
+<div class="profile-container">
+  <h1>Doctor Profile</h1>
+
+  <% if @doctor.present? %>
+    <div class="user-info">
+      <p>
+        <strong>Full Name:</strong> <%= @doctor.full_name %><br>
+        <strong>Email:</strong>     <%= @doctor.email %><br>
+        <strong>Phone:</strong>     <%= @doctor.phone %><br>
+        <strong>Age:</strong>       <%= @doctor.age %><br>
+        <strong>City:</strong>      <%= @doctor.city %><br>
+        <% if @doctor.category.present? %>
+          <strong>Category:</strong> <%= @doctor.category.title %><br>
+        <% end %>
+      </p><hr>
+
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <%= link_to "Create Appointment", new_doctor_appointment_path(@doctor), class:"btn btn-primary type=button" if patient_signed_in? %>
+     </div>
+
+
+      <div class="profile-actions">
+        <% if doctor_signed_in? && current_doctor == @doctor %>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <%= link_to "My Appointments", closed_appointments_appointments_path,  class:"btn btn-warning" %>
+            <%= link_to 'Edit Profile', edit_doctor_registration_path, class:"btn btn-primary me-md-2 button" %>
+            <%= link_to 'Log out', destroy_doctor_session_path, method: :delete, data: { turbo_method: :delete }, class:"btn btn-danger me-md-2 button"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-header">
+        <h2>Open Appointments</h2>
+      </div>
+      <div class="card-body">
+        <% @doctor.appointments.each do |appointment| %>
+          <% if appointment.status == 'open' %>
+            <li>
+              <%= link_to "Appointment with #{appointment.patient.email}", appointment_path(appointment) %>
+            </li>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+  <% else %>
+    <p>User not found</p>
+  <% end %>
+</div>
+
+
+

@@ -1,0 +1,46 @@
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <% @doctors.each do |doctor| %>
+          <div class="col-md-15">
+            <div class="card mt-3">
+              <div class="card-body">
+                <div class="card-header">
+                  <h3> <%= doctor.full_name %></h3>
+                 </div>
+                <p><strong>Email:</strong> <%= doctor.email %></p>
+                <p><strong>Phone:</strong> <%= doctor.phone %></p>
+                <p><strong>City:</strong> <%= doctor.city %></p>
+                <p><strong>Age:</strong> <%= doctor.age %></p>
+                <p><strong>Doctor:</strong> <%= doctor.category.title %></p><hr>
+                <div class="d-grid gap-2">
+                  <%= link_to "View profile" ,doctor_path(doctor), class:"btn btn-primary button" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card mt-3">
+        <div class="card-header">
+          Categories
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <% @categories.each do |category| %>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <%= link_to category.title, doctors_path(category_id: category.id), class: 'btn btn-link' %>
+               <span class="badge bg-primary rounded-pill"><%= category.doctors.count %></span>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

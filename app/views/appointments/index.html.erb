@@ -1,0 +1,35 @@
+<div class="container">
+  <h1 class="mb-4">Your Appointments</h1>
+
+  <ul class="list-group mb-4">
+    <% @appointments.each do |appointment| %>
+      <li class="list-group-item">
+        <%= link_to "Appointment with: #{appointment.doctor.email}", appointment_path(appointment) %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Back to Home",  patient_path(current_patient), class: "btn btn-primary mb-4" %>
+
+  <h2 class="mb-4">Closed Appointments: <%= @appointments.closed.size %></h2>
+  <p>Total Closed Appointments: <%= @appointments.closed.size %></p>
+
+   <div class="row">
+    <% @appointments.each do |appointment| %>
+      <% if appointment.status == 'closed' %>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h6 class="card-title"><strong><%= link_to "Appointment with: #{appointment.doctor.email}", appointment_path(appointment) %></strong></h6>
+              <p class="card-text"><strong>Date:</strong> <%= appointment.date %></p>
+              <p class="card-text"><strong>Time:</strong> <%= appointment.time %></p>
+              <p class="card-text"><strong>Problem:</strong> <%= appointment.problem %></p>
+              <p class="card-text text-danger"><strong>Status:</strong> Closed</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+</div>

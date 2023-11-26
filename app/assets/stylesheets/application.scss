@@ -1,0 +1,42 @@
+@import "bootstrap";
+
+
+
+
+.profile-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #fff9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.737);
+  }
+
+  h1 {
+    color: #333;
+  }
+
+  .user-info {
+    margin-bottom: 50px;
+  }
+
+  .user-info p {
+    margin: 0;
+  }
+
+  .profile-actions {
+    text-align: right;
+  }
+
+  .profile-actions a {
+    color: #031222;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+
+  .profile-actions a:hover {
+    text-decoration: underline;
+  }
+
+
+

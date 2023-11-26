@@ -1,0 +1,42 @@
+<!-- app/views/appointments/show.html.erb -->
+<br>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        <h2>Appointment Details</h2>
+      </div>
+
+      <div class="card-body">
+        <p><strong>Status:</strong> Closed</p>
+        <p><strong>Date:</strong> <%= @appointment.date %></p>
+        <p><strong>Time:</strong> <%= @appointment.time %></p>
+        <p><strong>Problem:</strong> <%= @appointment.problem %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        <h2>Recommendation</h2>
+      </div>
+      <div class="card-body">
+        <% if @recommendation %>
+          <p><strong>From Doctor:</strong> <%= @appointment.doctor.email %></p>
+          <p><%= @recommendation.content %></p>
+        <% else %>
+          <p>No recommendation available.</p>
+        <% end %>
+
+
+        <% if doctor_signed_in? %>
+          <%= link_to "Recommendations", new_appointment_recommendation_path(@appointment) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<hr>
+<%= link_to "Back to Appointments", doctor_path(@appointment.doctor) %>

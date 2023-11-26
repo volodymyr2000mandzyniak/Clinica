@@ -1,0 +1,31 @@
+<!-- app/views/appointments/closed_appointments.html.erb -->
+<h1 class="mb-4">Closed Appointments</h1>
+<p class="mb-4">Total Closed Appointments: <%= @appointments.size %></p>
+
+<ul class="list-group mb-4">
+  <% @appointments.each do |appointment| %>
+    <li class="list-group-item">
+      <%= link_to "Appointment with #{appointment.patient.email}", appointment_path(appointment) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to Appointments", doctor_path(current_doctor), class: "btn btn-primary mb-4" %>
+
+<hr>
+
+<% @appointments.each do |appointment| %>
+  <div class="card mb-4">
+    <div class="card-body">
+     <strong> <%= link_to "Appointment with #{appointment.patient.email}", appointment_path(appointment) %></strong>
+
+      <p class="card-text"><strong>Date:</strong> <%= appointment.date %></p>
+      <p class="card-text"><strong>Time:</strong> <%= appointment.time %></p>
+      <p class="card-text"><strong>Problem:</strong> <%= appointment.problem %></p>
+      <% if appointment.recommendation %>
+        <p><strong>Recommendation:</strong> <%= appointment.recommendation.content %></p>
+      <% end %>
+      <p class="card-text text-danger"><strong>Status:</strong> Closed</p>
+    </div>
+  </div>
+<% end %>

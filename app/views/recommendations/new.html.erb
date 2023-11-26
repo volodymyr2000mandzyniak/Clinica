@@ -1,0 +1,15 @@
+<!-- app/views/recommendations/new.html.erb -->
+<div class="container mt-4">
+  <h1 class="mb-4">Add Recommendation</h1>
+
+  <%= form_with(model: [@appointment, @recommendation], url: appointment_recommendations_path(@appointment), class: 'form') do |form| %>
+    <div class="mb-3">
+      <%= form.label :content, class: 'form-label' %>
+      <%= form.text_area :content, class: 'form-control', rows: 5 %>
+    </div>
+
+    <%= form.submit "Add Recommendation", class: 'btn btn-primary' %>
+  <% end %>
+
+  <%= link_to "Back to Appointment", appointment_path(@appointment), class: 'btn btn-secondary mt-3' %>
+</div>

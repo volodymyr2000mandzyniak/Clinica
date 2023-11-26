@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+
+
+
+
+<% unless doctor_signed_in? || patient_signed_in? %>
+  <%= link_to "Log in User", patient_session_path, class: "nav-link my-nav-item" %>
+  <%= link_to "Log in Doctor", doctor_session_path, class: "nav-link my-nav-item" %>
+
+<% end %>
