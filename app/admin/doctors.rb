@@ -1,8 +1,5 @@
-# app/admin/doctors.rb
 ActiveAdmin.register Doctor do
   permit_params :email, :full_name, :city, :age, :phone, :category_id, :password, :password_confirmation
-
-
 
   filter :category_id_eq, as: :select, collection: -> { Category.pluck(:title, :id) }
 

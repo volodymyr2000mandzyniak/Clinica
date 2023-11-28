@@ -68,9 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_26_164558) do
     t.string "city"
     t.integer "age"
     t.string "phone"
-    t.integer "categor_id"
     t.integer "category_id"
-    t.index ["email"], name: "index_doctors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true
   end
 
@@ -86,7 +84,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_26_164558) do
     t.string "city"
     t.integer "age"
     t.string "phone"
-    t.index ["email"], name: "index_patients_on_email", unique: true
     t.index ["reset_password_token"], name: "index_patients_on_reset_password_token", unique: true
   end
 

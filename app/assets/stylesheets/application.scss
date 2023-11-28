@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
 
 
 body {
@@ -54,7 +56,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 50vh;
   }
 
   .login-header {
@@ -68,7 +70,7 @@ body {
 
   .login-button {
     padding: 10px 20px;
-    background-color: #00ff88;
+    background-color: #ffa200;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -80,3 +82,5 @@ body {
   .login-button:hover {
     background-color: #0056b3;
   }
+
+
