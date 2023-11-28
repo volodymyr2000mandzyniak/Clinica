@@ -10,42 +10,14 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/messages' %>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary my_navbar">
-  <div class="container-fluid">
-    <%= link_to "Clinic", root_path, class: "navbar-brand my-navbar-brand" %>
-    <button class="navbar-toggler navbar-toggler-my custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-
-        <%= link_to "All Doctors",  doctors_path ,	 class: "nav-link  my-nav-item" %>
-        <%= link_to "All Patients", patients_path , class: "nav-link  my-nav-item" %>
-
-
-        <% if doctor_signed_in?  %>
-          <li class="nav-item">
-            <%= link_to 'Мій профіль', doctor_path(current_doctor), class: "nav-link  my-nav-item" %>
-          </li>
-        <% elsif  patient_signed_in? %>
-         <li class="nav-item">
-            <%= link_to 'Мій профіль', patient_path(current_patient), class: "nav-link  my-nav-item" %>
-          </li>
-          <% else%>
-
-        <% end %>
-
-      </ul>
-    </div>
-  </div>
-</nav>
 
 
     <div class=container>
-
       <%= yield %>
-
     </div>
+
   </body>
 </html>

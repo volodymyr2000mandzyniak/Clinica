@@ -1,6 +1,13 @@
 @import "bootstrap";
 
 
+body {
+  background-image: image-url('foto_six.jpg');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+}
+
 
 
 .profile-container {
@@ -40,3 +47,36 @@
 
 
 
+
+
+  .login-container-custom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .login-header {
+    margin-bottom: 20px;
+  }
+
+  .login-buttons-container {
+    display: flex;
+    gap: 10px;
+  }
+
+  .login-button {
+    padding: 10px 20px;
+    background-color: #00ff88;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none; /* Забирає підкреслення */
+  }
+
+  .login-button:hover {
+    background-color: #0056b3;
+  }

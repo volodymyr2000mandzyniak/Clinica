@@ -88,6 +88,7 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.8, < 3)
     builder (3.2.4)
+    cancancan (3.5.0)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.4)
@@ -268,6 +269,7 @@ DEPENDENCIES
   activeadmin
   bootsnap
   bootstrap (~> 5.3, >= 5.3.2)
+  cancancan
   debug
   devise (~> 4.9)
   importmap-rails

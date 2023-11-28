@@ -36,7 +36,7 @@ class DeviseCreateDoctors < ActiveRecord::Migration[7.0]
       t.timestamps null: false
     end
 
-    add_index :doctors, :email,                unique: true
+    # add_index :doctors, :email,                unique: true
     add_index :doctors, :reset_password_token, unique: true
     # add_index :doctors, :confirmation_token,   unique: true
     # add_index :doctors, :unlock_token,         unique: true

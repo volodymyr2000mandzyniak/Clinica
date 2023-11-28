@@ -18,7 +18,9 @@ ActiveAdmin.setup do |config|
   #
   # config.site_title_image = "logo.png"
 
-  # == Load Paths
+
+
+  # == Load Path
   #
   # By default Active Admin files go inside app/admin/.
   # You can change this directory.

@@ -30,21 +30,24 @@
       </div>
     </div>
 
+    <% if doctor_signed_in? && current_doctor == @doctor %>
+      <div class="card">
+        <div class="card-header">
 
-    <div class="card">
-      <div class="card-header">
-        <h2>Open Appointments</h2>
-      </div>
-      <div class="card-body">
-        <% @doctor.appointments.each do |appointment| %>
-          <% if appointment.status == 'open' %>
-            <li>
-              <%= link_to "Appointment with #{appointment.patient.email}", appointment_path(appointment) %>
-            </li>
+          <h2>Open Appointments:<%= @doctor.appointments.where(status: 'open').count %></h2>
+
+        </div>
+        <div class="card-body">
+          <% @doctor.appointments.each do |appointment| %>
+            <% if appointment.status == 'open' %>
+              <li>
+                <%= link_to "Appointment with #{appointment.patient.email}", appointment_path(appointment) %>
+              </li>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
   <% else %>
     <p>User not found</p>

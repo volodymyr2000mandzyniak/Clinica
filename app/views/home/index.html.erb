@@ -1,16 +1,11 @@
 
+<div class="login-container-custom">
+  <h2 class="login-header">Log In</h2>
 
-
-
-
-
-
-
-
-
-
-<% unless doctor_signed_in? || patient_signed_in? %>
-  <%= link_to "Log in User", patient_session_path, class: "nav-link my-nav-item" %>
-  <%= link_to "Log in Doctor", doctor_session_path, class: "nav-link my-nav-item" %>
-
-<% end %>
+  <div class="login-buttons-container">
+    <% unless doctor_signed_in? || patient_signed_in? %>
+      <%= link_to "I am User", patient_session_path, class: "login-button type=button" %>
+      <%= link_to "I am Doctor", doctor_session_path, class: "login-button type=button" %>
+    <% end %>
+  </div>
+</div>

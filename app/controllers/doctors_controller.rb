@@ -1,4 +1,5 @@
 class DoctorsController < ApplicationController
+
   def index
     @categories = Category.all
     category_id = params[:category_id]
